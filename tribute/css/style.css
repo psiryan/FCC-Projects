@@ -9,7 +9,12 @@ body {
   background-color: #000;
   font-family: Monospace;
 }
+p::first-letter {
+  font-size: xx-large;
+}
 h1 {
+  
+  margin: 0px;
 }
 a {
   color: #f00;
@@ -22,13 +27,21 @@ a:hover {
 }
 
 /*element ids*/
-#header-container {
-  min-height: 540px;
+#alt-history-events {
+  font-size: larger;
+}
+#chrono-release-order {
+  font-size: larger;
+}
+#Header-Container {
+  /* min-height: 50%; */
   grid-row: 1;
   grid-column: span 3/5; /* spanning a fraction of the whole */
 }
-#header-image{
-  grid-column: span 3/5;
+#Header-Container .bg-image{
+
+}
+#Header-Image{
   /* position: fixed; */
   position: absolute;
   background: #333 url('http://www.anim-arte.com/wp-content/uploads/2012/12/jin%E2%80%93roh-the-wolf-brigade.jpg');
@@ -36,115 +49,141 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 540px;
+  height: 100%;
   z-index: -1;  
 }
-#body-container{
+#Body-Container{
   grid-row: 2;
   grid-column: span 3/5; /* spanning a fraction of the whole */
 
 }
-#footer-container{
+#Footer-Container{
   grid-row: 3;  
   grid-column: span 3/5; /* spanning a fraction of the whole */
 }
 #portrait{
-  /* grid-row: 1; */
-  position: absolute;
-  clip: rect(10px,210px,210px,10px);
-  opacity: 0.7;
-/*   border-radius: 20%;
-  border-style: solid;
-  border-color:  green; */
+  grid-row: 1;
 }
-#subtitle {
-  font-size: larger;
-  margin: 10px;
-}
-
 /*Classes*/
-.global-layout-container {
+.global-grid-container {
     display: grid;
-    /* grid-template-columns: repeat(5, 1fr); */
+    grid-template-columns: repeat(5, 1fr);
+  @media(min-width: 75em;){
+  }
 }
-.nested-layout-container {
+.grid-nested-container {
   display: grid;
   grid-column: 2;
   grid-template-columns: 1fr;
+  
+  @media(min-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+    /*grid-gap: 1em;*/
+    /*grid-column: 2/11;    */
   }
-.larger-font{
-  font-size: larger;
 }
+
 .page-header {
   align-self: center;
   justify-self: center;
-  /* padding: 50px; */
+  padding: 50px;
   
-}
-.layout-container {
-  border-color: red;
-  border-width: 1px;
-  border-style: solid;
-}
-.nested-layout-container .body {
-  border-color: blue;
-  border-width: 1px;
-  border-style: solid;
-}
-.box-1 {
-}
-.box-2 {
-}
-.box-3 {
-}
-.box-4 {
-  /* contains "feature" */
-}
-.box-5 {
-  /* contains "timeline" */
-}
-.box-6 {
-}
-.box-7 {
-  /* contains "highlight" */
-}
-.box-8 {
-  /* contains "opinion" */
 }
 .body {
 }
 .footer {
 }
-
+.layout-structure {
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+}
+.grid-nested-container .body {
+  border-color: blue;
+  border-width: 1px;
+  border-style: solid;
+}
+.box-1 {
+/*   grid-column: 2/11; */
+}
+.box-2 {
+/*   grid-column: 2/11; */
+}
+.box-3 {
+    grid-row: 1;
+    justify-self: center;    
+  @media(max-width: 48em){
+    grid-column: 1;
+  }
+  @media(min-width: 48em) {
+    grid-column: span 2;    
+  }
+}
+.box-4 {
+  /*P*/
+  grid-column: 1;
+  grid-row: 2;
+}
+.box-7 {
+  /*UL*/
+  grid-column: 1;
+  grid-row: 3;
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0px 0px 1px 2px #f63;
+}
+.box-8 {
+  /*P*/
+  grid-column: 1;
+  grid-row: 4;
+}
+.box-5 {
+  /*UL*/
+  grid-column: 1;
+  grid-row: 5;
+  @media(min-width: 48em) {
+    grid-column: 2;
+    grid-row: span 4;
+  }
+}
+.box-6 {
+/*   grid-column: 2/11; */
+}
+.subtitle {
+  font-size: larger;
+  margin: 10px;
+}
 .ul-header {
   list-style-type: none;
-} 
-.title-of-work {
-  font-style: italic;
-  /* text-decoration: underline; */
+}
+.title-of-work { /*proper noun*/
+  /* font-style: italic; */
+  text-decoration: underline;
 }
 .title-japanese{
   /* Not sure if I need both of these, but probably need at least one */
   font-language-override: "JAV";
   font-variant-east-asian: jis04;
 }
-.text-effect-red-spectacle {
-  color: #f00;
-  text-align: center;
-  text-shadow: -0px -0px 1px #fff, 0px 0px 8px #f63, 0px 0px 10px #f33;
+.foot-note {
+  vertical-align: super;
+  font-size: 8pt;
 }
-/* .img-inset {
+.red-spectacle {
+  color: #f63;
+  text-align: center;
+  text-shadow: -0px -0px 1px #fff, 0px 0px 8px #f00, 0px 0px 10px #000;
+}
+.img-inset {
   border-style: inset;
   border-radius: 50%;
   box-shadow: inset 0px 0px 2px 8px #f63;
   padding: 10px;
-} */
+}
 .img-backdrop {
   width:100%;
   z-index: -1;
   opacity: 0.7;
-}
-.content::first-letter{
-  font-size: xx-large;
 }
 
